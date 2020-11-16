@@ -1,7 +1,7 @@
 public class Ressource{
     protected static int compte = 0;
     protected final int ident;
-    protected String type;
+    protected final String type;
     protected int x;
     protected int y;
     protected int quantite;
