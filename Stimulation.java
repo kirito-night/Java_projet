@@ -33,12 +33,15 @@ public class Stimulation {
             Ressource ress = terrain.getCase(agent.getX(), agent.getY());
             if (ress == null || ress.getType() == agent.getProduction_type()) {
                 if (avoirLieu(agent.getTaux_de_production())) {
-                    produireRessource();
+                    agent.produireRessource();
                 }
             } else {
-                tirerRessource();
+                agent.tirerRessource();
             }
         }
+    }
 
+    public boolean avoirLieu(double seuil){
+        return (Math.random()<seuil);
     }
 }
