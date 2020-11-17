@@ -2,8 +2,8 @@ public class Police extends Agent {
     protected static double taux_de_production = 0.15;
     protected static int capacite_de_production = 1;
     protected static int capacite_de_tirer = 2;
-    public final String production_type = "bomb";
-    public final String tirer_type = "base";
+    protected final String production_type = "bomb";
+    protected final String tirer_type = "base";
 
     public Police(int x, int y) {
         super(x, y);
@@ -51,6 +51,8 @@ public class Police extends Agent {
     public void seBattre() {
         System.out.println("Un combat a lieu ! La police a besoin de soutien !");
     }
+
+   
 
 
 

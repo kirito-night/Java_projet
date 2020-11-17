@@ -31,8 +31,8 @@ public class Stimulation {
     public void agentAction() {
         for(Agent agent : agents){
             Ressource ress = terrain.getCase(agent.getX(), agent.getY());
-            if (ress == null || ress.getType() == production_type) {
-                if (avoirLieu(agent.taux_de_production)) {
+            if (ress == null || ress.getType() == agent.getProduction_type()) {
+                if (avoirLieu(agent.getTaux_de_production())) {
                     produireRessource();
                 }
             } else {
