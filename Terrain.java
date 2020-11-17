@@ -34,8 +34,9 @@ public class Terrain {
 		for(int i = 0 ; i < nbLigne; i++) {
 			for(int j = 0; j<nbColonnes;j++) {
 			System.out.println(":-----");
-			System.out.println(String.format("| %5s |",tab[i][j]));
+			System.out.print(String.format("| %5s |",tab[i][j]));
 			}
+			System.out.println();
 		}
 		for (int i =0 ; i< nbColonnes;i++) {
 			System.out.println(":-----");
@@ -57,12 +58,14 @@ public class Terrain {
 		return caseEstVide(lig,col);
 
 	}
-	public Resssource videCase (int lig, int col){
+	public Ressource videCase (int lig, int col){
 		if(caseEstVide(lig,col)){
 			return null;
 		}
 		else{
-			return tab[lig][col] = null;
+			Ressouce tmp = tab[lig][col];
+			tab[lig][col] = null ;
+			return tmp ; 
 	
 		}
 	}
