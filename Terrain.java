@@ -1,9 +1,9 @@
 
 public class Terrain {
 	public final int nbColonnes;
-	public static final int NBCOLONNESMAX;
+	public static final int NBCOLONNESMAX = 20;
 	public final  int nbLigne;
-	public static final int NBLIGNEMAX;
+	public static final int NBLIGNEMAX= 20;
 	public Ressource[][] tab;
 
 	
