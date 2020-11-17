@@ -60,9 +60,8 @@ public class Terroriste extends Agent {
     }
 
     @Override
-    public Agent seBattre() {
+    public void seBattre() {
         // TODO Auto-generated method stub
-        return null;
     }
     
     
