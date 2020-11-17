@@ -39,10 +39,6 @@ public abstract class Agent {
         this.y = newy;
     }
 
-    public boolean avoirLieu(double seuil){
-        return (Math.random()<seuil);
-    }
-
     public abstract Ressource tirerRessource();
     public abstract Ressource produireRessource();
     // public abstract Agent seBattre();
