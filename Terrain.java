@@ -54,8 +54,10 @@ public class Terrain {
 	}
 
 	public boolean setCase(int lig, int col, Ressource ress){
+		if(caseEstVide(lig, col)&& sontValides(lig, col)){
 		tab[lig][col] = ress;
-		return caseEstVide(lig,col);
+		}
+		return caseEstVide(lig,col)  && sontValides(lig, col);
 
 	}
 	public Ressource videCase (int lig, int col){
@@ -63,7 +65,7 @@ public class Terrain {
 			return null;
 		}
 		else{
-			Ressouce tmp = tab[lig][col];
+			Ressource tmp = tab[lig][col];
 			tab[lig][col] = null ;
 			return tmp ; 
 	
