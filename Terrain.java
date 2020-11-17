@@ -4,13 +4,14 @@ public class Terrain {
 	public static final int NBCOLONNESMAX;
 	public final  int nbLigne;
 	public static final int NBLIGNEMAX;
-	public Ressource[][] tab = new Ressource[nbLigne][nbColonnes];
+	
 
 	
 	public Terrain(int nbColonnes, int nbLigne) {
 		super();
 		this.nbColonnes = nbColonnes;
 		this.nbLigne = nbLigne;
+		Ressource[][] tab = new Ressource[nbLigne][nbColonnes];
 		if(nbColonnes<NBCOLONNESMAX || nbLigne <NBLIGNEMAX || nbColonnes> 1 || nbLigne >1 ) {
 			for(int i = 0 ; i < 1;i++) {
 				for(int j = 0 ; j < 1 ; j++) {
