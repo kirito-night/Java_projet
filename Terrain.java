@@ -12,12 +12,15 @@ public class Terrain {
 		this.nbColonnes = nbColonnes;
 		this.nbLigne = nbLigne;
 		if(nbColonnes<NBCOLONNESMAX || nbLigne <NBLIGNEMAX || nbColonnes> 1 || nbLigne >1 ) {
-			this.nbLigne = 1;
-			this.nbColonnes =1;
+			for(int i = 0 ; i < 1;i++) {
+				for(int j = 0 ; j < 1 ; j++) {
+					tab[i][j]= null;
+				}
+			}
 		}
 		for(int i = 0 ; i < nbLigne;i++) {
 			for(int j = 0 ; j < nbColonnes ; j++) {
-				tab[i][j]= " ";
+				tab[i][j]= null;
 			}
 		}
 	}
@@ -39,8 +42,8 @@ public class Terrain {
 	}
 	
 	
-	public boolean caseEstVide)(int lig,int col){
-			return tab[lig][col] == " ";
+	public boolean caseEstVide(int lig,int col){
+			return tab[lig][col] == null;
 				
 	}
 	
@@ -58,8 +61,8 @@ public class Terrain {
 			return null;
 		}
 		else{
-			tab[lig][col] = " ";
-			return tab[lig][col];
+			return tab[lig][col] = null;
+	
 		}
 	}
 
