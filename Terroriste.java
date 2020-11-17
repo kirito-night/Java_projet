@@ -14,6 +14,7 @@ public class Terroriste extends Agent {
         if (avoirLieu(taux_de_production)) {
             if (terrain.caseEstVide(x, y)) {
                 Ressource r1 = new Ressource(production_type, 1);
+                r1.setPosition(x, y);
                 terrain.setCase(x, y, r1);
             }
         } else {
@@ -28,11 +29,11 @@ public class Terroriste extends Agent {
         int quan = ress.quantite;
         if(quan > capacite_de_tirer){
             ress.setQuantite(quan - capacite_de_tirer);
-            return ress
+            return ress;
         }
         else{
             terrain.videCase(x, y);
-            reuturn null;
+            return null;
         }
         
     }
