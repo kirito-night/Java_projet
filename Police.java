@@ -14,6 +14,7 @@ public class Police extends Agent {
             tirerRessource();
         }else if(ress.getType() == production_type || ress == null){
             produireRessource();
+            morale++;
         }else{
             System.err.println("Error from police Action()");
         }
@@ -27,7 +28,7 @@ public class Police extends Agent {
             ress.setQuantite(quantite-2);
             return ress;
         }else{
-            terrain.videCase(x, y);
+            ress.initialisePosition();
             return null;
         }
     }
@@ -38,7 +39,8 @@ public class Police extends Agent {
             return null;
         }
         Ressource ress = new Ressource(production_type, 1);
-        ress.
+        ress.setPosition(x, y);
+        return ress;
     }
 
     @Override
