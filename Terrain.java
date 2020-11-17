@@ -41,7 +41,7 @@ public class Terrain {
 			for(int j =0 ; j< nbColonnes;j++){
 				if(!caseEstVide(i, j)){
 					String tmp = tab[i][j].getType();
-					System.out.print(String.format("|%5s", tmp.substring(0, 4)));
+					System.out.print(String.format("|%-5s", tmp.substring(0, 4)));
 				}
 				else{
 					System.out.print("|     ");
