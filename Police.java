@@ -11,7 +11,7 @@ public class Police extends Agent{
         if(!avoirLieu(taux_de_production)){
             return null;
         }
-        Ressource ress = terrain.getCase(x, y);
+        Ressource ress = getCase();
         if(ress == null){
             
         }

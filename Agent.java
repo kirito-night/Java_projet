@@ -40,6 +40,10 @@ public abstract class Agent {
         return (Math.random()<seuil);
     }
 
+    public Ressource getCase(){
+        return terrain.getCase(x, y);
+    }
+    
     public abstract Ressource tirerRessource();
     public abstract Ressource produireRessource();
     public abstract Agent seBattre();
