@@ -33,16 +33,25 @@ public class Terrain {
 	public void affiche() {
 		for(int i = 0 ; i < nbLigne; i++) {
 			for(int j = 0; j<nbColonnes;j++) {
-			System.out.println(":-----");
-			System.out.print(String.format("| %5s |",tab[i][j].getType()));
+			System.out.print(":-----");
+	
 			}
+			System.out.print(":");
+			System.out.println();
+			for(int j =0 ; j< nbColonnes;j++){
+				System.out.print(String.format("|%5s", tab[i][j].getType()));
+				
+			}
+			System.out.print("|");
 			System.out.println();
 		}
 		for (int i =0 ; i< nbColonnes;i++) {
-			System.out.println(":-----");
+			System.out.print(":-----");
+			
 		}
+		System.out.print(":");
+		System.out.println();
 	}
-	
 	
 	public boolean caseEstVide(int lig,int col){
 			return tab[lig][col] == null;
