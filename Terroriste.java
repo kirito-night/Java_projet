@@ -18,7 +18,7 @@ public class Terroriste extends Agent {
                 terrain.setCase(x, y, r1);
                 return r1;
             }
-            if(terrain.tab[x][y].getType()==production_type){
+            if(terrain.tab[x][y].getType() == production_type){
                 terrain.tab[x][y].setQuantite(terrain.tab[x][y].quantite +1);
                 return terrain.tab[x][y];
             }
