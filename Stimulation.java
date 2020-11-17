@@ -29,7 +29,7 @@ public class Stimulation {
     }
 
 
-    public void agentAction() {
+    /*public void agentAction() {
         for(Agent agent : agents){
             Ressource ress = terrain.getCase(agent.getX(), agent.getY());
             if (ress == null || ress.getType() == agent.getProduction_type()) {
@@ -39,6 +39,27 @@ public class Stimulation {
             } else {
                 agent.tirerRessource();
             }
+        }
+    }*/
+    public void Action_Police() {
+        Ressource ress = getCase();
+        if (ress == null || ress.getType() == Police.production_type) {
+            if (avoirLieu(taux_de_production)) {
+                Police.produireRessource();
+            }
+        } else {
+            Police.tirerRessource();
+        }
+    }
+
+    public void Action_Terroriste() {
+        Ressource ress = getCase();
+        if (ress == null || ress.getType() == Terroriste.production_type) {
+            if (avoirLieu(taux_de_production)) {
+                Terroriste.produireRessource();
+            }
+        } else {
+            Terroriste.tirerRessource();
         }
     }
 

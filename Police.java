@@ -9,9 +9,9 @@ public class Police extends Agent {
         super(x, y);
     }
 
-    public void Action() {
+    public void Action_Police() {
         Ressource ress = getCase();
-        if (ress == null || ress.getType() == production_type) {
+        if (ress == null || ress.getType() == Police.production_type) {
             if (avoirLieu(taux_de_production)) {
                 produireRessource();
             }
@@ -21,7 +21,7 @@ public class Police extends Agent {
     }
 
     @Override
-    public Ressource tirerRessource() {
+    public static Ressource tirerRessource() {
         Ressource ress = getCase();
         int quantite = ress.getQuantite();
         if (quantite > capacite_de_tirer) {
@@ -35,7 +35,7 @@ public class Police extends Agent {
     }
 
     @Override
-    public Ressource produireRessource() {
+    public static Ressource produireRessource() {
         Ressource ress = getCase();
         if(ress == null){
             ress = new Ressource(production_type, capacite_de_production);

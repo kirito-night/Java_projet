@@ -11,7 +11,7 @@ public class Terroriste extends Agent {
 
     }
 
-    public Ressource produireRessource() {
+    public static Ressource produireRessource() {
         Ressource ress = getCase();
         if (terrain.caseEstVide(x, y)) {
                 ress = new Ressource(production_type, capacite_de_production);
@@ -26,7 +26,7 @@ public class Terroriste extends Agent {
     }
 
     @Override
-    public Ressource tirerRessource() {
+    public static Ressource tirerRessource() {
         if(!terrain.caseEstVide(x, y)){
             Ressource ress = getCase();
             int quan = ress.quantite;
