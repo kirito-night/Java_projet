@@ -43,7 +43,7 @@ public abstract class Agent {
     public Ressource getCase(){
         return terrain.getCase(x, y);
     }
-    
+
     public abstract Ressource tirerRessource();
     public abstract Ressource produireRessource();
     public abstract Agent seBattre();

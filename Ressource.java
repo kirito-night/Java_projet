@@ -45,5 +45,9 @@ public class Ressource{
             "] en position (" + x + ", " + y + ") ";
     }
 
+    public String getType() {
+        return type;
+    }
+
     
 }
