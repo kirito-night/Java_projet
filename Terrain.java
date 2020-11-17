@@ -1,10 +1,10 @@
 
 public class Terrain {
-	private final int nbColonnes;
-	private static final int NBCOLONNESMAX;
-	private final  int nbLigne;
-	private static final int NBLIGNEMAX;
-	protected Ressource[][] tab = new Ressource[nbLigne][nbColonnes];
+	public final int nbColonnes;
+	public static final int NBCOLONNESMAX;
+	public final  int nbLigne;
+	public static final int NBLIGNEMAX;
+	public Ressource[][] tab = new Ressource[nbLigne][nbColonnes];
 
 	
 	public Terrain(int nbColonnes, int nbLigne) {
@@ -69,6 +69,11 @@ public class Terrain {
 	public boolean sontValides(int lig, int col) {
 		return nbColonnes<NBCOLONNESMAX || nbLigne <NBLIGNEMAX || nbColonnes> 1 || nbLigne >1;
 	}
+
+    @Override
+    public String toString() {
+        return "Terrain [nbColonnes=" + nbColonnes + ", nbLigne=" + nbLigne + "]";
+    }
 
 	
 
