@@ -71,7 +71,7 @@ public class Terrain {
 	
 	
 	public boolean sontValides(int lig, int col) {
-		return nbColonnes<NBCOLONNESMAX || nbLigne <NBLIGNEMAX || nbColonnes> 1 || nbLigne >1;
+		return col<NBCOLONNESMAX || lig <NBLIGNEMAX || col> 1 || lig >1;
 	}
 
     @Override
