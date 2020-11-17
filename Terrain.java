@@ -11,7 +11,7 @@ public class Terrain {
 		super();
 		this.nbColonnes = nbColonnes;
 		this.nbLigne = nbLigne;
-		Ressource[][] tab = new Ressource[nbLigne][nbColonnes];
+		tab = new Ressource[nbLigne][nbColonnes];
 		if(nbColonnes<NBCOLONNESMAX || nbLigne <NBLIGNEMAX || nbColonnes> 1 || nbLigne >1 ) {
 			for(int i = 0 ; i < 1;i++) {
 				for(int j = 0 ; j < 1 ; j++) {
@@ -34,7 +34,7 @@ public class Terrain {
 		for(int i = 0 ; i < nbLigne; i++) {
 			for(int j = 0; j<nbColonnes;j++) {
 			System.out.println(":-----");
-			System.out.print(String.format("| %5s |",tab[i][j]));
+			System.out.print(String.format("| %5s |",tab[i][j].getType()));
 			}
 			System.out.println();
 		}
