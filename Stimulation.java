@@ -28,5 +28,14 @@ public class Stimulation {
         this.agents = agents;
     }
 
-    
+    public void Action_Terroriste(){
+        Ressource ress = getCase();
+        if(ress.getType() == Terroriste.tirer_type{
+            tirerRessource();
+        }else if(ress.getType() == Terroriste.production_type || ress == null){
+            produireRessource();
+        }else{
+            System.err.println("Error from Terrorist Action()");
+        }
+    }
 }

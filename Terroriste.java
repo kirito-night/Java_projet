@@ -1,9 +1,10 @@
 public class Terroriste extends Agent {
     protected static double taux_de_production = 0.3;
+    protected static int capacite_de_production = 1;
     protected static int capacite_de_tirer = 1;
     protected static int detruit;
-    protected final String production_type = "bomb";
-    protected  final String tirer_type = "base";
+    protected static final String production_type = "bomb";
+    protected static final String tirer_type = "base";
 
     public Terroriste(int x, int y) {
         super(x, y);
@@ -11,21 +12,17 @@ public class Terroriste extends Agent {
     }
 
     public Ressource produireRessource() {
-        if (avoirLieu(taux_de_production)) {
-            if (terrain.caseEstVide(x, y)) {
-                Ressource r1 = new Ressource(production_type, 1);
-                r1.setPosition(x, y);
+        Ressource ress = getCase();
+        if (terrain.caseEstVide(x, y)) {
+                ress = new Ressource(production_type, capacite_de_production);
+                ress.setPosition(x, y);
                 terrain.setCase(x, y, r1);
-                return r1;
+            
+        }else if(terrain.tab[x][y].getType() == production_type){
+                /*terrain.tab[x][y].setQuantite(terrain.tab[x][y].quantite +1);*/
+                ress.setQuantite(ress.getQuantite()+capacite_de_production);
             }
-            if(terrain.tab[x][y].getType() == production_type){
-                terrain.tab[x][y].setQuantite(terrain.tab[x][y].quantite +1);
-                return terrain.tab[x][y];
-            }
-            return terrain.tab[x][y];
-        } else {
-            return null;
-        }
+            return ress;
     }
 
     @Override
