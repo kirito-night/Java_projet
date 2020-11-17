@@ -52,6 +52,8 @@ public class Police extends Agent {
         System.out.println("Un combat a lieu ! La police a besoin de soutien !");
     }
 
+   
+
 
 
 

@@ -3,11 +3,14 @@ public abstract class Agent {
     
     protected static int compte = 0;
     protected final int ident;
-    protected double taux_de_production;
     protected int x;
     protected int y;
     protected int morale;
-    protected Terrain terrain;
+    protected double taux_de_production;
+    protected int capacite_de_production;
+    protected int capacite_de_tirer;
+    protected String production_type;
+    protected String tirer_type;
 
     public Agent(int x, int y) {
         compte++;
@@ -40,12 +43,32 @@ public abstract class Agent {
         return (Math.random()<seuil);
     }
 
-    public Ressource getCase(){
-        return terrain.getCase(x, y);
-    }
-
     public abstract Ressource tirerRessource();
     public abstract Ressource produireRessource();
     // public abstract Agent seBattre();
     public abstract void seBattre();
+
+    public  double getTaux_de_production() {
+        return taux_de_production;
+    }
+
+    public int getCapacite_de_production() {
+        return capacite_de_production;
+    }
+
+    public void setCapacite_de_production(int capacite_de_production) {
+        Police.capacite_de_production = capacite_de_production;
+    }
+
+    public int getCapacite_de_tirer() {
+        return capacite_de_tirer;
+    }
+
+    public String getProduction_type() {
+        return production_type;
+    }
+
+    public String getTirer_type() {
+        return tirer_type;
+    }
 }
