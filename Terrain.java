@@ -39,8 +39,12 @@ public class Terrain {
 			System.out.print(":");
 			System.out.println();
 			for(int j =0 ; j< nbColonnes;j++){
-				System.out.print(String.format("|%5s", tab[i][j].getType()));
-				
+				if(!caseEstVide(i, j)){
+					System.out.print(String.format("|%5s", tab[i][j].getType()));
+				}
+				else{
+					System.out.print("    ");
+				}
 			}
 			System.out.print("|");
 			System.out.println();
