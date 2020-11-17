@@ -4,7 +4,7 @@ public class Terrain {
 	public static final int NBCOLONNESMAX;
 	public final  int nbLigne;
 	public static final int NBLIGNEMAX;
-	
+	public Ressource[][] tab;
 
 	
 	public Terrain(int nbColonnes, int nbLigne) {
@@ -34,7 +34,7 @@ public class Terrain {
 		for(int i = 0 ; i < nbLigne; i++) {
 			for(int j = 0; j<nbColonnes;j++) {
 			System.out.println(":-----");
-			System.out.println(String.format("| %s |",tab[i][j]));
+			System.out.println(String.format("| %5s |",tab[i][j]));
 			}
 		}
 		for (int i =0 ; i< nbColonnes;i++) {
@@ -57,7 +57,7 @@ public class Terrain {
 		return caseEstVide(lig,col);
 
 	}
-	public Resssource videCase (ing lig, int col){
+	public Resssource videCase (int lig, int col){
 		if(caseEstVide(lig,col)){
 			return null;
 		}
