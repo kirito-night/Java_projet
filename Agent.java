@@ -46,5 +46,6 @@ public abstract class Agent {
 
     public abstract Ressource tirerRessource();
     public abstract Ressource produireRessource();
-    public abstract Agent seBattre();
+    // public abstract Agent seBattre();
+    public abstract void seBattre();
 }

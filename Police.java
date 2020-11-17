@@ -1,22 +1,22 @@
 public class Police extends Agent {
     protected static double taux_de_production = 0.15;
+    protected static int capacite_de_production = 1;
     protected static int capacite_de_tirer = 2;
-    protected final String production_type = "Base";
-    protected final String tirer_type = "Bombe";
+    protected final String production_type = "bomb";
+    protected final String tirer_type = "base";
 
     public Police(int x, int y) {
         super(x, y);
     }
 
-    public void Action(){
+    public void Action() {
         Ressource ress = getCase();
-        if(ress.getType() == tirer_type){
+        if (ress == null || ress.getType() == production_type) {
+            if (avoirLieu(taux_de_production)) {
+                produireRessource();
+            }
+        } else {
             tirerRessource();
-        }else if(ress.getType() == production_type || ress == null){
-            produireRessource();
-            morale++;
-        }else{
-            System.err.println("Error from police Action()");
         }
     }
 
@@ -24,30 +24,35 @@ public class Police extends Agent {
     public Ressource tirerRessource() {
         Ressource ress = getCase();
         int quantite = ress.getQuantite();
-        if(quantite >= 2){
-            ress.setQuantite(quantite-2);
-            return ress;
-        }else{
+        if (quantite > capacite_de_tirer) {
+            ress.setQuantite(quantite - capacite_de_tirer);
+        } else {
             ress.initialisePosition();
-            return null;
+            terrain.videCase(x, y);
         }
-    }
-
-    @Override
-    public Ressource produireRessource() {
-        if (!avoirLieu(taux_de_production)) {
-            return null;
-        }
-        Ressource ress = new Ressource(production_type, 1);
-        ress.setPosition(x, y);
+        morale++;
         return ress;
     }
 
     @Override
-    public Agent seBattre() {
-        // TODO Auto-generated method stub
-        return null;
+    public Ressource produireRessource() {
+        Ressource ress = getCase();
+        if(ress == null){
+            ress = new Ressource(production_type, capacite_de_production);
+            ress.setPosition(x, y);
+            terrain.setCase(x, y, ress);
+        }else{
+            ress.setQuantite(ress.getQuantite()+capacite_de_production);
+        }
+        return ress;
     }
+
+    @Override
+    public void seBattre() {
+        System.out.println("Un combat a lieu ! La police a besoin de soutien !");
+    }
+
+
 
 
 
