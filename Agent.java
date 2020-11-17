@@ -7,6 +7,7 @@ public abstract class Agent {
     protected int x;
     protected int y;
     protected int morale;
+    protected Terrain terrain;
 
     public Agent(int x, int y) {
         compte++;
@@ -39,7 +40,11 @@ public abstract class Agent {
         return (Math.random()<seuil);
     }
 
-    public abstract Ressource produireRessource();
+    public Ressource getCase(){
+        return terrain.getCase(x, y);
+    }
+    
     public abstract Ressource tirerRessource();
+    public abstract Ressource produireRessource();
     public abstract Agent seBattre();
 }

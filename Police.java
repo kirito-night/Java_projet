@@ -11,7 +11,10 @@ public class Police extends Agent{
         if(!avoirLieu(taux_de_production)){
             return null;
         }
-        return 
+        Ressource ress = getCase();
+        if(ress == null){
+            
+        }
 
     }
 
