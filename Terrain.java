@@ -43,7 +43,7 @@ public class Terrain {
 					System.out.print(String.format("|%5s", tab[i][j].getType()));
 				}
 				else{
-					System.out.print("    ");
+					System.out.print("|     ");
 				}
 			}
 			System.out.print("|");
