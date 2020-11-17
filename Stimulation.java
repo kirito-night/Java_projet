@@ -42,11 +42,8 @@ public class Stimulation {
         }
     }
 
-<<<<<<< HEAD
->>>>>>> 44d041603f996ee29667eadfee95799850c149f2
-=======
     public boolean avoirLieu(double seuil){
         return (Math.random()<seuil);
->>>>>>> d635f17e87ce05c0ed11016cde2f357310cc9556
+
     }
 }
