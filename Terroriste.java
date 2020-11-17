@@ -12,9 +12,13 @@ public class Terroriste extends Agent {
 
     public Ressource produireRessource() {
         if (avoirLieu(taux_de_production)) {
-            if (terrain.caseEstVide(x, y)) {
+            if (terrain.caseEstVide(x, y) {
                 Ressource r1 = new Ressource(production_type, 1);
+                r1.setPosition(x, y);
                 terrain.setCase(x, y, r1);
+            }
+            if(terrain.tab[x][y].getType()==production_type)){
+                terrain.tab[x][y].setQuantite(terrain.tab[x][y].quantite +1);
             }
         } else {
             return null;
@@ -24,17 +28,19 @@ public class Terroriste extends Agent {
     @Override
     public Ressource tirerRessource() {
         // TODO Auto-generated method stub
-        Ressource ress = getCase();
-        int quan = ress.quantite;
-        if(quan > capacite_de_tirer){
-            ress.setQuantite(quan - capacite_de_tirer);
-            return ress
-        }
-        else{
+        if(!terrain.caseEstVide(x, y)){
+            Ressource ress = getCase();
+            int quan = ress.quantite;
+            if(quan > capacite_de_tirer){
+                ress.setQuantite(quan - capacite_de_tirer);
+                return ress;
+            }
+            else{
             terrain.videCase(x, y);
-            reuturn null;
-        }
+            return null;
+            }
         
+         }
     }
 
     public void Action(){
