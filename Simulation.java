@@ -15,10 +15,10 @@ public class Simulation {
             base.setPosition((int) (Math.random()*lig), (int) (Math.random()*col));
             ressources.add(base);
             registerRessource(base);
-            Ressource bomb = new Ressource("bomb", 1);
-            bomb.setPosition((int) (Math.random()*lig), (int) (Math.random()*col));
-            ressources.add(bomb);
-            registerRessource(bomb);
+            Ressource bombe = new Ressource("bombe", 1);
+            bombe.setPosition((int) (Math.random()*lig), (int) (Math.random()*col));
+            ressources.add(bombe);
+            registerRessource(bombe);
         }
         if(m % 2 == 1){
             ressources.add(new Ressource("base", 1));
@@ -71,23 +71,23 @@ public class Simulation {
                     ress = new Ressource(agent.getProduction_type(), agent.getCapacite_de_production());
                     ress.setPosition(x, y);
                     terrain.setCase(x, y, ress);
-                    ress.toString();
+                    System.out.println(ress.toString());
                 }
             } else {
                 ress = terrain.getCase(x, y);
                 if (ress.getType() == agent.getProduction_type()) {
                     agent.augmenterRessource();
-                    ress.toString();
+                    System.out.println(ress.toString());
                     ress.setQuantite(ress.getQuantite() + agent.getCapacite_de_production());
                 } else {
                     int quantite = ress.getQuantite();
                     if (quantite > agent.getCapacite_de_tirer()) {
                         agent.tirerRessource();
-                        ress.toString();
+                        System.out.println(ress.toString());
                         ress.setQuantite(quantite - agent.getCapacite_de_tirer());
                     } else {
                         agent.effacerRessource();
-                        ress.toString();
+                        System.out.println(ress.toString());
                         terrain.videCase(x, y);
                         ress.initialisePosition();
                         ressources.remove(ress);
