@@ -11,8 +11,12 @@ public class Simulation {
 
         ressources = new ArrayList<Ressource>();
         for(int i = 0; i < m/2; i++){
-            ressources.add(new Ressource("base", 1));
-            ressources.add(new Ressource("bomb", 1));
+            Ressource base = new Ressource("base", 1);
+            base.setPosition((int) (Math.random()*lig), (int) (Math.random()*col));
+            ressources.add(base);
+            Ressource bomb = new Ressource("bomb", 1);
+            bomb.setPosition((int) (Math.random()*lig), (int) (Math.random()*col));
+            ressources.add(bomb);
         }
         if(m % 2 == 1){
             ressources.add(new Ressource("base", 1));
@@ -20,11 +24,25 @@ public class Simulation {
 
         agents = new ArrayList<Agent>();
         for(int i = 0; i < n/2; i++){
-            agents.add(new Police((int) (Math.random())*(terrain.nbLigne), (int) (Math.random())*(terrain.nbLigne)));
-            agents.add(new Terroriste((int) (Math.random())*(terrain.nbLigne), (int) (Math.random())*(terrain.nbLigne)));
+            agents.add(new Police((int) (Math.random()*terrain.nbLigne), (int) (Math.random()*terrain.nbLigne)));
+            agents.add(new Terroriste((int) (Math.random()*terrain.nbLigne), (int) (Math.random()*terrain.nbLigne)));
         }
         if(n % 2 == 1){
-            agents.add(new Terroriste((int) (Math.random())*(terrain.nbLigne), (int) (Math.random())*(terrain.nbLigne)));
+            agents.add(new Terroriste((int) (Math.random()*terrain.nbLigne), (int) (Math.random()*terrain.nbLigne)));
+        }
+    }
+
+    public void registerRessource(Ressource ress){
+        int x = ress.getX();
+        int y = ress.getY();
+        Ressource ter = terrain.tab[x][y];
+        if(ter == null){
+            terrain.setCase(x, y, ress);
+        }
+        else if(ter.getType() == ress.getType()){
+            ter.setQuantite(ter.getQuantite()+1);
+        }else{
+            ter.setQuantite(ter.getQuantite()-1);
         }
     }
 
@@ -65,6 +83,7 @@ public class Simulation {
                     agent.incrementerMorale();
                 }
             }
+            terrain.affiche();
             // if(agentIci[x][y] == )
             if(avoirLieu(terrain.nbLigne*terrain.nbColonnes/(agents.size()/2.))){
                 agent.seBattre();
