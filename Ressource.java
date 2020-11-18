@@ -11,8 +11,6 @@ public class Ressource{
         this.ident = compte;
         this.type = type;
         this.quantite = quantite;
-        this.x = (int) (Math.random()*terrain.nbLigne);
-        this.y = (int) (Math.random()*terrain.nbLigne)));
     }
 
     public int getX() {
