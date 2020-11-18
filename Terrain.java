@@ -54,8 +54,11 @@ public class Terrain {
 			System.out.print(":-----");
 			
 		}
-		System.out.print(":");
-		System.out.println();
+		System.out.print(":\n");
+		for(int i = 0; i < 3; i++){
+			System.out.println("##########");
+		}
+		
 	}
 	
 	public boolean caseEstVide(int lig,int col){

@@ -38,13 +38,16 @@ public class Simulation {
         int x = ress.getX();
         int y = ress.getY();
         Ressource ter = terrain.tab[x][y];
-        if(ter == null){
+        if(terrain.caseEstVide(x, y)){
             terrain.setCase(x, y, ress);
         }
         else if(ter.getType() == ress.getType()){
             ter.setQuantite(ter.getQuantite()+1);
         }else{
             ter.setQuantite(ter.getQuantite()-1);
+            if (ter.getQuantite() == 0) {
+                terrain.videCase(x, y);
+            }
         }
     }
 
