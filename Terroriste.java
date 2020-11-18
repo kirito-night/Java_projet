@@ -2,10 +2,10 @@ public class Terroriste extends Agent {
     protected static double taux_de_production = 0.3;
     protected static int capacite_de_production = 1;
     protected static int capacite_de_tirer = 1;
-    protected static int detruit;
     protected static final String production_type = "bomb";
     protected static final String tirer_type = "base";
-
+    protected static int nb_construit;
+    protected static int nb_detruit;
     public Terroriste(int x, int y) {
         super(x, y);
 
@@ -64,11 +64,13 @@ public class Terroriste extends Agent {
     @Override
     public void produireRessource() {
         System.out.println("A bomb is set in the zone!");
+        nb_construit++;
     }
     
     @Override
     public void tirerRessource() {
         System.out.println("A police's base is destroyed!");
+        nb_detruit++;
     }
 
     @Override

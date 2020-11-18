@@ -99,6 +99,12 @@ public class Simulation {
             }
         }
     }
+    public void moveAgents(){
+        for(Agent agent : agents){
+            agent.seDeplacer((int)Math.random()*terrain.nbLigne, (int)Math.random()*terrain.nbColonnes);
+        }
+        
+    }
 
     // public int agentToInt(Agent agent){
     //     if(agent.getProduction_type() == "base"){

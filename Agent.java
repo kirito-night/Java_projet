@@ -14,6 +14,7 @@ public abstract class Agent {
         this.y = y;
         this.morale = 1;
     }
+    
 
     public int getX() {
         return x;
@@ -58,4 +59,13 @@ public abstract class Agent {
     public abstract String getProduction_type();
 
     public abstract String getTirer_type();
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+    
 }
