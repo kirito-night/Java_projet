@@ -51,7 +51,7 @@ public class Simulation {
                 }
             }
         }
-    }
+
 
 
     public void agentsAction() {
@@ -71,19 +71,23 @@ public class Simulation {
                     ress = new Ressource(agent.getProduction_type(), agent.getCapacite_de_production());
                     ress.setPosition(x, y);
                     terrain.setCase(x, y, ress);
+                    ress.toString();
                 }
             } else {
                 ress = terrain.getCase(x, y);
                 if (ress.getType() == agent.getProduction_type()) {
                     agent.augmenterRessource();
+                    ress.toString();
                     ress.setQuantite(ress.getQuantite() + agent.getCapacite_de_production());
                 } else {
                     int quantite = ress.getQuantite();
                     if (quantite > agent.getCapacite_de_tirer()) {
                         agent.tirerRessource();
+                        ress.toString();
                         ress.setQuantite(quantite - agent.getCapacite_de_tirer());
                     } else {
                         agent.effacerRessource();
+                        ress.toString();
                         terrain.videCase(x, y);
                         ress.initialisePosition();
                         ressources.remove(ress);
@@ -102,8 +106,7 @@ public class Simulation {
     public void moveAgents(){
         for(Agent agent : agents){
             agent.seDeplacer((int)Math.random()*terrain.nbLigne, (int)Math.random()*terrain.nbColonnes);
-        }
-        
+        } 
     }
 
     // public int agentToInt(Agent agent){
