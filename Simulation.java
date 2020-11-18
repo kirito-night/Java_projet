@@ -48,8 +48,8 @@ public class Simulation {
             if (ter.getQuantite() == 0) {
                 terrain.videCase(x, y);
                 ressources.remove(ress);
-                }
             }
+            
         }
     }
 
