@@ -4,8 +4,8 @@ public class Terroriste extends Agent {
     protected static int capacite_de_tirer = 1;
     protected static final String production_type = "bomb";
     protected static final String tirer_type = "base";
-    protected static int nb_construit;
-    protected static int nb_detruit;
+    protected static int nb_construit =0;
+    protected static int nb_detruit =0;
     public Terroriste(int x, int y) {
         super(x, y);
 

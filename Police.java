@@ -5,8 +5,8 @@ public class Police extends Agent {
     protected static int capacite_de_tirer = 2;
     protected static final String production_type = "base";
     protected static final String tirer_type = "bomb";
-    protected static int nb_construit;
-    protected static int nb_detruit;
+    protected static int nb_construit=0;
+    protected static int nb_detruit=0;
 
     public Police(int x, int y) {
         super(x, y);
