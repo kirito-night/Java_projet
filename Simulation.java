@@ -47,6 +47,8 @@ public class Simulation {
             ter.setQuantite(ter.getQuantite()-1);
             if (ter.getQuantite() == 0) {
                 terrain.videCase(x, y);
+                ressources.remove(ress);
+                }
             }
         }
     }
@@ -71,7 +73,7 @@ public class Simulation {
                     terrain.setCase(x, y, ress);
                 }
             } else {
-                ress= terrain.getCase(x, y);
+                ress = terrain.getCase(x, y);
                 if (ress.getType() == agent.getProduction_type()) {
                     agent.augmenterRessource();
                     ress.setQuantite(ress.getQuantite() + agent.getCapacite_de_production());
@@ -82,8 +84,10 @@ public class Simulation {
                         ress.setQuantite(quantite - agent.getCapacite_de_tirer());
                     } else {
                         agent.effacerRessource();
-                        ress.initialisePosition();
                         terrain.videCase(x, y);
+                        ress.initialisePosition();
+                        ressources.remove(ress);
+                        
                     }
                     agent.incrementerMorale();
                 }
