@@ -72,13 +72,13 @@ public class Simulation {
         }
     }
 
-    public int agentToInt(Agent agent){
-        if(agent.getProduction_type() == "base"){
-            return 0;
-        }else{
-            return 1;
-        }
-    }
+    // public int agentToInt(Agent agent){
+    //     if(agent.getProduction_type() == "base"){
+    //         return 0;
+    //     }else{
+    //         return 1;
+    //     }
+    // }
 
     public boolean avoirLieu(double seuil){
         return (Math.random()<seuil);
