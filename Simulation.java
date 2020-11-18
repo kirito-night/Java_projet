@@ -14,9 +14,11 @@ public class Simulation {
             Ressource base = new Ressource("base", 1);
             base.setPosition((int) (Math.random()*lig), (int) (Math.random()*col));
             ressources.add(base);
+            registerRessource(base);
             Ressource bomb = new Ressource("bomb", 1);
             bomb.setPosition((int) (Math.random()*lig), (int) (Math.random()*col));
             ressources.add(bomb);
+            registerRessource(bomb);
         }
         if(m % 2 == 1){
             ressources.add(new Ressource("base", 1));
@@ -85,7 +87,7 @@ public class Simulation {
             }
             terrain.affiche();
             // if(agentIci[x][y] == )
-            if(avoirLieu(terrain.nbLigne*terrain.nbColonnes/(agents.size()/2.))){
+            if(avoirLieu(terrain.nbLigne*terrain.nbColonnes/(agents.size()/2.)/100)){
                 agent.seBattre();
             }
         }
