@@ -6,11 +6,6 @@ public abstract class Agent {
     protected int x;
     protected int y;
     protected int morale;
-    protected double taux_de_production;
-    protected int capacite_de_production;
-    protected int capacite_de_tirer;
-    protected String production_type;
-    protected String tirer_type;
 
     public Agent(int x, int y) {
         compte++;
@@ -39,32 +34,28 @@ public abstract class Agent {
         this.y = newy;
     }
 
-    public abstract Ressource tirerRessource();
-    public abstract Ressource produireRessource();
-    // public abstract Agent seBattre();
+    public void incrementerMorale(){
+        morale++;
+    }
+
+
+    public abstract void augmenterRessource();
+    
+    public abstract void produireRessource();
+
+    public abstract void tirerRessource();
+    
+    public abstract void effacerRessource();
+
     public abstract void seBattre();
 
-    public  double getTaux_de_production() {
-        return taux_de_production;
-    }
+    public abstract double getTaux_de_production();
 
-    public int getCapacite_de_production() {
-        return capacite_de_production;
-    }
+    public abstract int getCapacite_de_production();
 
-    public void setCapacite_de_production(int capacite_de_production) {
-        Police.capacite_de_production = capacite_de_production;
-    }
+    public abstract int getCapacite_de_tirer();
 
-    public int getCapacite_de_tirer() {
-        return capacite_de_tirer;
-    }
+    public abstract String getProduction_type();
 
-    public String getProduction_type() {
-        return production_type;
-    }
-
-    public String getTirer_type() {
-        return tirer_type;
-    }
+    public abstract String getTirer_type();
 }
