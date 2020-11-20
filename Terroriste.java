@@ -58,29 +58,29 @@ public class Terroriste extends Agent {
 
     @Override
     public void augmenterRessource() {
-        System.out.println("A new bombe is set!");
+        System.out.println("A new bombe is set!\n");
     }
     
     @Override
     public void produireRessource() {
-        System.out.println("A bombe is set in the zone!");
+        System.out.println("A bombe is set in the zone!\n");
         nb_construit++;
     }
     
     @Override
     public void tirerRessource() {
-        System.out.println("A police's base is destroyed!");
+        System.out.println("A police's base is destroyed!\n");
         nb_detruit++;
     }
 
     @Override
     public void effacerRessource() {
-        System.out.println("No police's base is around, zone cleared.");
+        System.out.println("No police's base is around, zone cleared.\n");
     }
 
     @Override
     public void seBattre() {
-        System.out.println("We've met the police! Call for support!");
+        System.out.println("Terroriste : We've met the police somewhere! Call for support!\n");
     }
     
     @Override

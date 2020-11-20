@@ -36,7 +36,7 @@ public class Police extends Agent {
 
     @Override
     public void seBattre() {
-        System.out.println("Un combat a lieu ! La police a besoin de soutien!\n");
+        System.out.println("Police : Un combat a lieu quelque part! Nous avons besoin de soutien!\n");
     }
 
     @Override

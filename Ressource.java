@@ -42,7 +42,7 @@ public class Ressource{
     @Override
     public String toString() {
         return type + " [id=" + ident + ", quantite=" + quantite + 
-            "] en position (" + x + ", " + y + ") ";
+            "] en position (" + x + ", " + y + ") \n";
     }
 
     public String getType() {

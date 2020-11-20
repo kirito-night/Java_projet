@@ -1,10 +1,13 @@
 import java.util.ArrayList;
 
-
 public class Simulation {
     private Terrain terrain;
     private ArrayList<Ressource> ressources;
     private ArrayList<Agent> agents;
+    private static int nbBombeCreees = 0;
+    private static int nbBombeDetruites = 0;
+    private static int nbBaseCreees = 0;
+    private static int nbBaseDetruites = 0;
 
     public Simulation(int lig, int col, int m, int n) {
         this.terrain = new Terrain(lig, col);
@@ -22,6 +25,13 @@ public class Simulation {
         }
         if(m % 2 == 1){
             ressources.add(new Ressource("base", 1));
+        }
+        for(Ressource ressource : ressources){
+            if(ressource.getType() == "bombe"){
+                nbBombeCreees++;
+            }else{
+                nbBaseCreees++;
+            }
         }
 
         agents = new ArrayList<Agent>();
@@ -73,6 +83,7 @@ public class Simulation {
                     ress.setPosition(x, y);
                     terrain.setCase(x, y, ress);
                     System.out.println(ress.toString());
+                    ressourceRecord(ress, 1);
                 }
             } else {
                 ress = terrain.getCase(x, y);
@@ -80,16 +91,26 @@ public class Simulation {
                     agent.augmenterRessource();
                     System.out.println(ress.toString());
                     ress.setQuantite(ress.getQuantite() + agent.getCapacite_de_production());
+                    for(int i = 0; i < agent.getCapacite_de_production(); i++){
+                        ressourceRecord(ress, 1);
+                    }
                 } else {
                     int quantite = ress.getQuantite();
                     if (quantite > agent.getCapacite_de_tirer()) {
                         agent.tirerRessource();
                         System.out.println(ress.toString());
                         ress.setQuantite(quantite - agent.getCapacite_de_tirer());
+                        for(int i = 0; i < agent.getCapacite_de_tirer(); i++){
+                            ressourceRecord(ress, 0);
+                        }
                     } else {
                         agent.effacerRessource();
+                        ress.setQuantite(0);
+                        ress = terrain.videCase(x, y);
                         System.out.println(ress.toString());
-                        terrain.videCase(x, y);
+                        for (int i = 0; i < quantite; i++) {
+                            ressourceRecord(ress, 0);
+                        }
                         ress.initialisePosition();
                         ressources.remove(ress);
                         
@@ -97,11 +118,11 @@ public class Simulation {
                     agent.incrementerMorale();
                 }
             }
-            terrain.affiche();
-            // if(agentIci[x][y] == )
             if(avoirLieu(terrain.nbLigne*terrain.nbColonnes/(agents.size()/2.)/100)){
                 agent.seBattre();
             }
+            terrain.affiche();
+            // if(agentIci[x][y] == )
         }
     }
     public void moveAgents(){
@@ -121,5 +142,26 @@ public class Simulation {
     public boolean avoirLieu(double seuil){
         return (Math.random()<seuil);
 
+    }
+
+    public void ressourceRecord(Ressource ress, int plusOuMoins) {
+        if(ress.getType() == "bombe"){
+            if(plusOuMoins == 1){
+                nbBombeCreees++;
+            }else{
+                nbBombeDetruites++;
+            }
+        }else{
+            if(plusOuMoins == 1){
+                nbBaseCreees++;
+            }else{
+                nbBaseDetruites++;
+            }
+        }
+    }
+
+    public void ressourceResume() {
+        System.out.println(String.format("|Dans cette guerre, %d bombes et %d bases sont creees.\n %d bombes et %d bases sont detruites.|",
+         nbBombeCreees, nbBaseCreees, nbBombeDetruites, nbBaseDetruites));
     }
 }
