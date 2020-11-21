@@ -33,7 +33,7 @@ public class Outils {
     
         // faire une resume pour les ressources deja creees et detruites
         public static void ressourceResume() {
-            System.out.println(String.format("|Dans cette guerre, %d bombes et %d bases sont creees.\n %d bombes et %d bases sont detruites.|",
+            System.out.println(String.format("Dans cette guerre, %d bombes et %d bases sont creees.\n %d bombes et %d bases sont detruites.\n",
              nbBombeCreees, nbBaseCreees, nbBombeDetruites, nbBaseDetruites));
         }
     
