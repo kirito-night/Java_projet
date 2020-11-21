@@ -8,9 +8,9 @@ public class Terroriste extends Agent {
     public Terroriste(int x, int y) {
         super(x, y);
     }
+
     public Terroriste(Terroriste t1){
-        super.x=t1.x;
-        super.y = t1.y;
+        super(t1.x, t1.y);
     }
 
     // les 5 methodes ci-dessous ne servent que d'afficher des informations

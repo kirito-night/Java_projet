@@ -6,10 +6,6 @@ public class Simulation {
     private ArrayList<Ressource> ressources;
     private ArrayList<Agent> agents;
     // Ci-dessous des nombres pour compter les ressources creees et detruites
-    private static int nbBombeCreees = 0;
-    private static int nbBombeDetruites = 0;
-    private static int nbBaseCreees = 0;
-    private static int nbBaseDetruites = 0;
 
     public Simulation(int lig, int col, int m, int n) {
         this.terrain = new Terrain(lig, col);
