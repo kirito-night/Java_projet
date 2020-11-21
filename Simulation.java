@@ -26,12 +26,8 @@ public class Simulation {
         }
 
         // compter les ressources et enrigistrer leur nombre cree
-        for(Ressource ressource : ressources){
-            if(ressource.getType() == "bombe"){
-                nbBombeCreees++;
-            }else{
-                nbBaseCreees++;
-            }
+        for(Ressource ress : ressources){
+                Outils.ressourceRecord(ress, 1);
         }
 
         // creation des agents
@@ -76,13 +72,13 @@ public class Simulation {
 
             // si la case est vide, il y a une possibilite que l'agent depose sa ressource correspondante
             if (terrain.caseEstVide(x, y)) {
-                if (avoirLieu(agent.getTaux_de_production())) {
+                if (Outils.avoirLieu(agent.getTaux_de_production())) {
                     agent.produireRessource();
                     ress = new Ressource(agent.getProduction_type(), agent.getCapacite_de_production());
                     ress.setPosition(x, y);
                     terrain.setCase(x, y, ress);
                     System.out.println(ress.toString());
-                    ressourceRecord(ress, 1);
+                    Outils.ressourceRecord(ress, 1);
                 }
             } else {// sinon, voir le type de ressource
                 ress = terrain.getCase(x, y);
@@ -91,7 +87,7 @@ public class Simulation {
                     System.out.println(ress.toString());
                     ress.setQuantite(ress.getQuantite() + agent.getCapacite_de_production());
                     for(int i = 0; i < agent.getCapacite_de_production(); i++){
-                        ressourceRecord(ress, 1);
+                        Outils.ressourceRecord(ress, 1);
                     }
                 } else { // sinon, on l'enleve
                     int quantite = ress.getQuantite();
@@ -102,7 +98,7 @@ public class Simulation {
                         System.out.println(ress.toString());
                         ress.setQuantite(quantite - agent.getCapacite_de_tirer());
                         for(int i = 0; i < agent.getCapacite_de_tirer(); i++){
-                            ressourceRecord(ress, 0);
+                            Outils.ressourceRecord(ress, 0);
                         }
                     } else { // sinon, on supprimer la ressource
                         agent.effacerRessource();
@@ -110,7 +106,7 @@ public class Simulation {
                         ress = terrain.videCase(x, y);
                         System.out.println(ress.toString());
                         for (int i = 0; i < quantite; i++) {
-                            ressourceRecord(ress, 0);
+                            Outils.ressourceRecord(ress, 0);
                         }
                         ress.initialisePosition();
                         ressources.remove(ress);
@@ -119,7 +115,7 @@ public class Simulation {
                 }
             }
             // il y a une possibilite que les deux camps se battent, mais cela ne modifie pas aucune coordonnee
-            if(avoirLieu(terrain.nbLigne*terrain.nbColonnes/(agents.size()/2.)/100)){
+            if(Outils.avoirLieu(terrain.nbLigne*terrain.nbColonnes/(agents.size()/2.)/100)){
                 agent.seBattre();
             }
             terrain.affiche();
@@ -131,45 +127,6 @@ public class Simulation {
         } 
     }
 
-    // une methode pour definir un evenement se passe ou non
-    public boolean avoirLieu(double seuil){
-        return (Math.random()<seuil);
 
-    }
-
-    /**
-     * 
-     * @param ress la ressource specifique qui fait l'objet
-     * @param plusOuMoins 0 si on va diminuer sa quantite, 1 pour l'augmenter
-    */
-    public void ressourceRecord(Ressource ress, int plusOuMoins) {
-        if(ress.getType() == "bombe"){
-            if(plusOuMoins == 1){
-                nbBombeCreees++;
-            }else{
-                nbBombeDetruites++;
-            }
-        }else{
-            if(plusOuMoins == 1){
-                nbBaseCreees++;
-            }else{
-                nbBaseDetruites++;
-            }
-        }
-    }
-
-    // faire une resume pour les ressources deja creees et detruites
-    public void ressourceResume() {
-        System.out.println(String.format("|Dans cette guerre, %d bombes et %d bases sont creees.\n %d bombes et %d bases sont detruites.|",
-         nbBombeCreees, nbBaseCreees, nbBombeDetruites, nbBaseDetruites));
-    }
-
-    // separateur de chaque affichage
-    public void afficherSeparateur(){
-        for(int i = 0; i < 3; i++){
-            System.out.println("##########");
-        }
-        System.out.println("\n");
-    }
     
 }

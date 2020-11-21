@@ -4,8 +4,8 @@ public class TestSimulation {
         for (int i = 0; i < 10; i++) {
             s1.agentsAction();
             s1.moveAgents();
-            s1.ressourceResume();
-            s1.afficherSeparateur();
+            Outils.ressourceResume();
+            Outils.afficherSeparateur();
         }
         
     }
