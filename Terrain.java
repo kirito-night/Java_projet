@@ -18,7 +18,7 @@ public class Terrain {
 				}
 			}
 		}
-		
+
 		for(int i = 0 ; i < nbLigne;i++) {
 			for(int j = 0 ; j < nbColonnes ; j++) {
 				tab[i][j]= null;
@@ -44,7 +44,8 @@ public class Terrain {
 			for(int j =0 ; j< nbColonnes;j++){
 				if(!caseEstVide(i, j)){
 					String tmp = tab[i][j].getType();
-					System.out.print(String.format("|%-5s", tmp));// affichage des ressources dans la case
+					// affichage des ressources dans la case
+					System.out.print(String.format("|%-5s", tmp));
 				}
 				else{
 					System.out.print("|     ");

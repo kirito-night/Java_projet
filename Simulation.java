@@ -46,14 +46,18 @@ public class Simulation {
         int x = ress.getX();
         int y = ress.getY();
         Ressource ter = terrain.tab[x][y];
-        if(terrain.caseEstVide(x, y)){ // si la case est vide, ajouter la ressource
+        // si la case est vide, ajouter la ressource
+        if(terrain.caseEstVide(x, y)){ 
             terrain.setCase(x, y, ress);
         }
-        else if(ter.getType() == ress.getType()){ // si la case a le meme type de ressource, augmenter la quantite
+        // si la case a le meme type de ressource, augmenter la quantite
+        else if(ter.getType() == ress.getType()){ 
             ter.setQuantite(ter.getQuantite()+1); 
-        }else{ // si le type de ressource est different de celle qui existe dans la case, diminuer la quantite de cette derniere
+            // si le type de ressource est different de celle qui existe dans la case, diminuer la quantite de cette derniere
+        }else{ 
             ter.setQuantite(ter.getQuantite()-1);
-            if (ter.getQuantite() == 0) { // si la quantite reduit a 0, la ressource est supprimee
+            // si la quantite reduit a 0, la ressource est supprimee
+            if (ter.getQuantite() == 0) { 
                 terrain.videCase(x, y);
                 ressources.remove(ress);
             }
