@@ -10,11 +10,10 @@ public class Police extends Agent {
         super(x, y);
     }
 
-    public Police(Police p1){
-        super.x= p1.x;
-        super.y = p1.y;
+    public Police (Police p1){
+        super(p1.x,p1.y);
     }
-    
+
 
     // les 5 methodes ci-dessous ne servent que d'afficher des informations
     @Override
