@@ -5,8 +5,6 @@ public class Police extends Agent {
     protected static int capacite_de_tirer = 2;
     protected static final String production_type = "base";
     protected static final String tirer_type = "bombe";
-    protected static int nb_construit=0;
-    protected static int nb_detruit=0;
 
     public Police(int x, int y) {
         super(x, y);
@@ -20,13 +18,11 @@ public class Police extends Agent {
     @Override
     public void produireRessource() {
         System.out.println("Une base de police est construite!\n");
-        nb_construit++;
     }
     
     @Override
     public void tirerRessource() {
         System.out.println("Nous avons desactivés des bombees.\n");
-        nb_detruit++;
     }
 
     @Override
@@ -63,6 +59,4 @@ public class Police extends Agent {
     public String getTirer_type() {
         return tirer_type;
     }
-
-
 }

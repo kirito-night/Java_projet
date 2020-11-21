@@ -5,14 +5,12 @@ public abstract class Agent {
     protected final int ident;
     protected int x;
     protected int y;
-    protected int morale;
 
     public Agent(int x, int y) {
         compte++;
         ident = compte;
         this.x = x;
         this.y = y;
-        this.morale = 1;
     }
     
 
@@ -35,10 +33,13 @@ public abstract class Agent {
         this.y = newy;
     }
 
-    public void incrementerMorale(){
-        morale++;
+    public void setX(int x) {
+        this.x = x;
     }
 
+    public void setY(int y) {
+        this.y = y;
+    }
 
     public abstract void augmenterRessource();
     
@@ -59,13 +60,5 @@ public abstract class Agent {
     public abstract String getProduction_type();
 
     public abstract String getTirer_type();
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
     
 }
