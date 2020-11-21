@@ -167,4 +167,13 @@ public class Simulation {
         System.out.println(String.format("|Dans cette guerre, %d bombes et %d bases sont creees.\n %d bombes et %d bases sont detruites.|",
          nbBombeCreees, nbBaseCreees, nbBombeDetruites, nbBaseDetruites));
     }
+
+    // separateur de chaque affichage
+    public void afficherSeparateur(){
+        for(int i = 0; i < 3; i++){
+            System.out.println("##########");
+        }
+        System.out.println("\n");
+    }
+    
 }

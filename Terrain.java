@@ -58,10 +58,7 @@ public class Terrain {
 			
 		}
 		System.out.print(":\n\n");
-		for(int i = 0; i < 3; i++){
-			System.out.println("##########");
-		}// separateur de chaque affichage
-		System.out.println();
+		
 		
 	}
 	
