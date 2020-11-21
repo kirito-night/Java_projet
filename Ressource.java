@@ -1,10 +1,10 @@
 public class Ressource{
-    protected static int compte = 0;
-    protected final int ident;
-    protected final String type;
-    protected int x;
-    protected int y;
-    protected int quantite;
+    private static int compte = 0;
+    public final int ident;
+    public final String type;
+    private int x;
+    private int y;
+    private int quantite;
 
     public Ressource(String type, int quantite) {
         compte++;

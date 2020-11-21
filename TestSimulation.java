@@ -5,6 +5,7 @@ public class TestSimulation {
             s1.agentsAction();
             s1.moveAgents();
             s1.ressourceResume();
+            s1.afficherSeparateur();
         }
         
     }

@@ -1,10 +1,10 @@
 public class Police extends Agent {
 
-    protected static double taux_de_production = 0.15; // le pourcentage pour creer des ressources
-    protected static int capacite_de_production = 1; // le nombre de ressource a creer si possible
-    protected static int capacite_de_tirer = 2; // le nombre de ressource a destruire si y en a
-    protected static final String production_type = "base"; // le type de ressource que la classe peut produire
-    protected static final String tirer_type = "bombe"; // le type de ressource que la classe peut detruire
+    private static double taux_de_production = 0.15; // le pourcentage pour creer des ressources
+    private static int capacite_de_production = 1; // le nombre de ressource a creer si possible
+    private static int capacite_de_tirer = 2; // le nombre de ressource a destruire si y en a
+    private static final String production_type = "base"; // le type de ressource que la classe peut produire
+    private static final String tirer_type = "bombe"; // le type de ressource que la classe peut detruire
 
     public Police(int x, int y) {
         super(x, y);
