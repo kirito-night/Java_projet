@@ -83,6 +83,7 @@ public class Simulation {
                     terrain.setCase(x, y, ress);
                     System.out.println(ress.toString());
                     Outils.ressourceRecord(ress, 1);
+                    terrain.affiche();
                 }
             } else {// sinon, voir le type de ressource
                 ress = terrain.getCase(x, y);
@@ -114,6 +115,7 @@ public class Simulation {
                         }
                         ress.initialisePosition();
                         ressources.remove(ress);
+                        terrain.affiche();
                     }
                 }
             }
@@ -121,7 +123,6 @@ public class Simulation {
             if(Outils.avoirLieu(terrain.nbLigne*terrain.nbColonnes/(agents.size()/2.)/100)){
                 agent.seBattre();
             }
-            terrain.affiche();
         }
     }
     public void moveAgents(){ // deplacer tous les agents
