@@ -45,6 +45,9 @@ public class Ressource{
             "] en position (" + x + ", " + y + ") \n";
     }
 
+    /*
+     * @return  le type de Ressource sous format de string
+    */
     public String getType() {
         return type;
     }

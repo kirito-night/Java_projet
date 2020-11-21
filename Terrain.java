@@ -30,6 +30,9 @@ public class Terrain {
 		this(NBCOLONNESMAX,NBLIGNEMAX);
 	}
 	
+	/*
+	* affiche le terrain
+	*/
 	public void affiche() {
 		for(int i = 0 ; i < nbLigne; i++) {
 			for(int j = 0; j<nbColonnes;j++) {
@@ -41,7 +44,7 @@ public class Terrain {
 			for(int j =0 ; j< nbColonnes;j++){
 				if(!caseEstVide(i, j)){
 					String tmp = tab[i][j].getType();
-					System.out.print(String.format("|%-5s", tmp));
+					System.out.print(String.format("|%-5s", tmp));// affichage des ressources dans la case
 				}
 				else{
 					System.out.print("|     ");
@@ -57,14 +60,13 @@ public class Terrain {
 		System.out.print(":\n\n");
 		for(int i = 0; i < 3; i++){
 			System.out.println("##########");
-		}
+		}// separateur de chaque affichage
 		System.out.println();
 		
 	}
 	
 	public boolean caseEstVide(int lig,int col){
 			return tab[lig][col] == null;
-				
 	}
 	
 	public Ressource getCase(int lig, int col){
