@@ -19,6 +19,7 @@ public class Terrain {
 				}
 			}
 		}
+		
 		for(int i = 0 ; i < nbLigne;i++) {
 			for(int j = 0 ; j < nbColonnes ; j++) {
 				tab[i][j]= null;
