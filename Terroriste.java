@@ -8,7 +8,6 @@ public class Terroriste extends Agent {
     public Terroriste(int x, int y) {
         super(x, y);
     }
-
     public Terroriste(Terroriste t1){
         super(t1.x, t1.y);
     }
