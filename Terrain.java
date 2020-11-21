@@ -7,7 +7,7 @@ public class Terrain {
 	public Ressource[][] tab;
 
 	
-	public Terrain(int nbColonnes, int nbLigne) {
+	public Terrain(int nbLigne, int nbColonnes) {
 		super();
 		this.nbColonnes = nbColonnes;
 		this.nbLigne = nbLigne;
