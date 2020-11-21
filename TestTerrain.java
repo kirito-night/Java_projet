@@ -21,7 +21,7 @@ public class TestTerrain {
 		System.out.println("Informations sur le terrain:\n"+t);		
 		
 		// On créé une ressource
-		Ressource e1 = new Ressource("Miel",5);
+		Ressource e1 = new Ressource("bombe",5);
 		// et on la place sur le terrain
 		if (t.setCase(2,3,e1))
 			System.out.println("Ajout de " +e1+" valide !");
@@ -29,7 +29,7 @@ public class TestTerrain {
 			System.out.println("Ajout incorrect: problème de coordonnées !");
 		
 		// On créé une autre ressource
-		Ressource e2 = new Ressource("Pollen",4);
+		Ressource e2 = new Ressource("base",4);
 		// On rajoute la ressource sur le terrain
 		if (t.setCase(0,2,e2))
 			System.out.println("Ajout de " +e2+" valide !");
@@ -37,7 +37,7 @@ public class TestTerrain {
 			System.out.println("Ajout incorrect: problème de coordonnées !");
 		
 		// On rajoute une autre ressource et on la met sur le terrain
-		if (t.setCase(4,1,new Ressource("Pollen",3)))
+		if (t.setCase(4,1,new Ressource("base",3)))
 			System.out.println("Ajout valide !");
 		else
 			System.out.println("Ajout incorrect: problème de coordonnées !");

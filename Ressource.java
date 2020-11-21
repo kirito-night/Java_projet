@@ -48,6 +48,5 @@ public class Ressource{
     public String getType() {
         return type;
     }
-
     
 }

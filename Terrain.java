@@ -102,14 +102,5 @@ public class Terrain {
         return "Terrain [nbColonnes=" + nbColonnes + ", nbLigne=" + nbLigne + "]";
     }
 
-	
-
-	
-	
-
-
-
-
-
 }
 

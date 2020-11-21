@@ -67,13 +67,9 @@ public class Simulation {
 
     public void agentsAction() {
 
-        // int [][] agentIci = new int[terrain.nbLigne][terrain.nbColonnes];
-
         for(Agent agent : agents){
-            
             int x = agent.getX();
             int y = agent.getY();
-            // agentIci[x][y] = agentToInt(agent);
             Ressource ress;
 
             if (terrain.caseEstVide(x, y)) {
@@ -115,14 +111,12 @@ public class Simulation {
                         ressources.remove(ress);
                         
                     }
-                    agent.incrementerMorale();
                 }
             }
             if(avoirLieu(terrain.nbLigne*terrain.nbColonnes/(agents.size()/2.)/100)){
                 agent.seBattre();
             }
             terrain.affiche();
-            // if(agentIci[x][y] == )
         }
     }
     public void moveAgents(){
@@ -130,14 +124,6 @@ public class Simulation {
             agent.seDeplacer((int)Math.random()*terrain.nbLigne, (int)Math.random()*terrain.nbColonnes);
         } 
     }
-
-    // public int agentToInt(Agent agent){
-    //     if(agent.getProduction_type() == "base"){
-    //         return 0;
-    //     }else{
-    //         return 1;
-    //     }
-    // }
 
     public boolean avoirLieu(double seuil){
         return (Math.random()<seuil);
