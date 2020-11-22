@@ -3,7 +3,8 @@
  */
 
 /**
- * @author Christophe Marsala (LU2IN002 2020oct)
+ * @author Christophe Marsala, LI Junji, ZENG Fanxiang (LU2IN002 2020oct)
+ *
  * 
  */
 public class TestTerrain {
